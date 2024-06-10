@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, state, child) {
           return Scaffold(
             appBar: AppBar(
-              title: Text(AppLocalizations.of(context)!.translate('app_title')),
+              title: Text(AppLocalizations.of(context)?.translate('app_title') ?? ''),
               actions: [
                 IconButton(
                   icon: Icon(Icons.brightness_6),
