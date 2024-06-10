@@ -7,7 +7,7 @@ import 'screens/notes_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/note_detail_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'l10n/app_localizations.dart'; // Eklenmesi gereken satır
+import 'l10n/app_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, state, child) {
           return Scaffold(
             appBar: AppBar(
-              title: Text('Not Defteri'),
+              title: Text(AppLocalizations.of(context)!.translate('app_title')),
               actions: [
                 IconButton(
                   icon: Icon(Icons.brightness_6),
@@ -149,7 +149,7 @@ class _MyAppState extends State<MyApp> {
         const Locale('tr', 'TR'), // Türkçe
       ],
       localizationsDelegates: [
-        AppLocalizationsDelegate(overriddenLocale: overriddenLocale),
+        AppLocalizationsDelegate(overriddenLocale: overriddenLocale)!,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
