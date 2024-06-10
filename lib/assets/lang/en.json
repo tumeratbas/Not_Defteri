@@ -1,0 +1,12 @@
+{
+    "app_title": "Notebook",
+    "home_page_title": "Home",
+    "notes_page_title": "Notes",
+    "settings_page_title": "Settings",
+    "add_note_button_text": "Add Note",
+    "note_added_message": "Note added successfully!",
+    "delete_note_confirmation": "Are you sure you want to delete this note?",
+    "yes_button_text": "Yes",
+    "no_button_text": "No"
+  }
+  

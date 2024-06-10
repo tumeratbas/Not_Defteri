@@ -6,6 +6,8 @@ import 'screens/home_screen.dart';
 import 'screens/notes_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/note_detail_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'l10n/app_localizations.dart'; // Eklenmesi gereken satır
 
 void main() {
   runApp(MyApp());
@@ -135,12 +137,32 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    final Locale overriddenLocale = const Locale('en', 'US');
     return MaterialApp.router(
       routeInformationParser: _router.routeInformationParser,
       routerDelegate: _router.routerDelegate,
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: _themeMode,
+      supportedLocales: [
+        const Locale('en', 'US'), // İngilizce
+        const Locale('tr', 'TR'), // Türkçe
+      ],
+      localizationsDelegates: [
+        AppLocalizationsDelegate(overriddenLocale: overriddenLocale),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      localeResolutionCallback: (locale, supportedLocales) {
+        for (var supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale?.languageCode &&
+              supportedLocale.countryCode == locale?.countryCode) {
+            return supportedLocale;
+          }
+        }
+        return supportedLocales.first;
+      },
     );
   }
 }
